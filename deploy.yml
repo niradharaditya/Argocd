@@ -17,8 +17,24 @@ spec:
       containers:
       - name: cont1
         image: trainerreyaz/mb-image
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: internetbanking-rs
+  labels:
+    app: bank
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: bank
+  template:
+    metadata:
+      labels:
+        app: bank
+    spec:
       containers:
-      - name: con2
+      - name: cont1
         image: trainerreyaz/ib-image
 ---
 apiVersion: v1

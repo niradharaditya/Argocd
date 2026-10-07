@@ -5,7 +5,7 @@ metadata:
   labels:
     app: bank
 spec:
-  replicas: 5
+  replicas: 6
   selector:
     matchLabels:
       app: bank
@@ -17,46 +17,6 @@ spec:
       containers:
       - name: cont1
         image: trainerreyaz/mb-image
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: internetbanking-rs
-  labels:
-    app: bank
-spec:
-  replicas: 5
-  selector:
-    matchLabels:
-      app: bank
-  template:
-    metadata:
-      labels:
-        app: bank
-    spec:
-      containers:
-      - name: cont1
-        image: trainerreyaz/ib-image
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: loans-rs
-  labels:
-    app: bank
-spec:
-  replicas: 5
-  selector:
-    matchLabels:
-      app: bank
-  template:
-    metadata:
-      labels:
-        app: bank
-    spec:
-      containers:
-      - name: cont1
-        image: trainerreyaz/loans-image
 ---
 apiVersion: v1
 kind: Service
